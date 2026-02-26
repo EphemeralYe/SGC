@@ -1,6 +1,3 @@
-deletion iii) merging iv) traversal  
- 
- 
 #include<stdio.h>  
 int n, a[100];  
 int main()  
