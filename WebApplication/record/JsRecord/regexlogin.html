@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    Phone.No: <input type="number" id="phn" required><br><br>
+    Password: <input type="password" id="pass" required>
+    <input type="button" value="Login" id="btn">
+<script>
+    document.getElementById("btn").addEventListener("click", function(){
+        let phn = document.getElementById("phn").value;
+        let pass = document.getElementById("pass").value;
+        
+        const pattern = /^[0-9]{10}$/;
+
+        if(!pattern.test(phn)) {
+            alert("Please enter a valid 10-digit phone number");
+            return;
+        }
+        
+        if(pass.trim() === "") {
+            alert("Password is required");
+            return;
+        }
+	document.write("Login Successful");
+    });
+</script> 
+</body>
+</html>
