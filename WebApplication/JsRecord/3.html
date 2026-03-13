@@ -4,18 +4,18 @@
     <title>Login Page</title>
 </head>
 <body>
-    Phone.No: <input type="number" id="phn" required><br><br>
+    Email: <input type="text" id="user" required><br><br>
     Password: <input type="password" id="pass" required>
     <input type="button" value="Login" id="btn">
 <script>
     document.getElementById("btn").addEventListener("click", function(){
-        let phn = document.getElementById("phn").value;
+        let email = document.getElementById("user").value;
         let pass = document.getElementById("pass").value;
         
-        const pattern = /^[0-9]{10}$/;
-
-        if(!pattern.test(phn)) {
-            alert("Please enter a valid 10-digit phone number");
+        const pattern = /\w+@\w+\.\w+/;
+	
+        if(!pattern.test(email)) {
+            alert("Please enter a valid email address");
             return;
         }
         
