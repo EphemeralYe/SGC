@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	Username: <input type="text" id="username" required><br><br>
+	Password: <input type="password" id="pass" required>
+	<input type="button" value="Login" id="btn">
+<script>
+	document.getElementById("btn").addEventListener("click", function(){
+		let name=document.getElementById("username").value;
+		let pass=document.getElementById("pass").value;
+		if(name.trim() === "") {
+			alert("username is required");
+			return;
+		};
+		if(pass.trim() === "") {
+			alert("password is required");
+			return;
+		}
+		document.write("Login Sucessfull");
+	});
+</script> 
+</body>
+</html>
