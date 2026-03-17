@@ -14,8 +14,8 @@
 			alert("username is required");
 			return;
 		};
-		if(pass.trim() === "") {
-			alert("password is required");
+		if(pass.length < 6 || pass.length > 12) {
+			alert("password must be between 6 and 12 characters");	
 			return;
 		}
 		document.write("Login Sucessfull");

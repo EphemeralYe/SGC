@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Page</title>
+	<title>Login Page</title>
 </head>
 <body>
     Email: <input type="text" id="user" required><br><br>
@@ -15,14 +15,13 @@
         const pattern = /\w+@\w+\.\w+/;
 	
         if(!pattern.test(email)) {
-            alert("Please enter a valid email address");
-            return;
+            	alert("Please enter a valid email address");
+        	return;
         }
-        
-        if(pass.trim() === "") {
-            alert("Password is required");
-            return;
-        }
+        if(pass.length < 6 || pass.length > 12) {
+		alert("password must be between 6 and 12 characters");	
+		return;
+	}
 	document.write("Login Successful");
     });
 </script> 
