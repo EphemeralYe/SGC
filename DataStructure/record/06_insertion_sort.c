@@ -1,9 +1,7 @@
 #include <stdio.h>
-
 void insertion_sort(int arr[], int n) 
 {
     int i, j, key;
-
     for (i = 1; i < n; i++) 
     {
         key = arr[i];
@@ -16,7 +14,6 @@ void insertion_sort(int arr[], int n)
         arr[j + 1] = key;
     }
 }
-
 void printArr(int arr[], int n) 
 {
     int i;
@@ -26,23 +23,18 @@ void printArr(int arr[], int n)
     }
     printf("\n");
 }
-
 int main() 
 {
     int arr[100], i, n;
-
     printf("Enter the total values of the array : ");
     scanf("%d", &n);
-
     printf("Enter %d elements of the array : \n", n);
     for (i = 0; i < n; i++) 
     {
         scanf("%d", &arr[i]);
     }
-
     printf("\nSorted Array : \n");
     insertion_sort(arr, n);
     printArr(arr, n);
-
     return 0;
 }
