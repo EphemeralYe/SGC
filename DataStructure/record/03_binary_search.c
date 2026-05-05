@@ -1,49 +1,63 @@
-#include <stdio.h>
-int main() 
-{
-    int a[100], i, loc, mid, beg, end, n, flag = 0, item;
-
-    printf("Enter total elements of the array : ");
-    scanf("%d", &n);
-
-    printf("Enter %d elements : \n", n);
-    for (i = 0; i < n; i++) 
+#include<stdio.h>
+int binarySearch(int arr[], int key, int n)
+{ 
+    int start=0, end=n-1, mid;
+    while(start<=end)
     {
-        scanf("%d", &a[i]);
-    }
-
-    printf("Enter the element to search : ");
-    scanf("%d", &item);
-
-    loc = 0;
-    beg = 0;
-    end = n - 1;
-
-    do 
-    {
-        mid = (beg + end) / 2;
-
-        if (item == a[mid]) 
+        mid=(start+end)/2;
+        if(arr[mid]==key)
         {
-            printf("Search is successful \n");
-            loc = mid;
-            printf("Position of the item : %d \n", loc + 1);
-            flag = flag + 1;
-        } 
-        else if (item < a[mid]) 
-        {
-            end = mid - 1;
-        } 
-        else 
-        {
-            beg = mid + 1;
+            return mid;
         }
-    } while ((beg <= end) && (item != a[mid]));
-
-    if (flag == 0) 
-    {
-        printf("Search is not successful \n");
+        else if(arr[mid]>key){
+            end=mid-1;
+        }
+        else if(arr[mid]<key){
+            start=mid+1;
+        }
     }
-
-    return 0;
+    return -1;
 }
+void printArr(int arr[], int n)
+{
+    printf("Your Array is : ");
+    for(int i=0; i<n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+}
+int main()
+{
+    int n, key, result;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter %d Elements:\n", n);
+    for(int i=0; i<n; i++){
+        scanf("%d", &arr[i]);
+    }
+    printArr(arr, n);
+    printf("\nEnter the element you need to srearch: ");
+    scanf("%d",&key);
+    result=binarySearch(arr,key,n);
+    if (result!=-1){
+        printf("The Element %d Found at the position %d\n",key, result+1);
+    }
+    else{
+        printf("Element not found");
+    }
+}
+
+
+/* OUTPUT
+Enter the number of elements: 5
+Enter 5 Elements:
+1
+2
+3
+4
+5
+Your Array is : 1 2 3 4 5 
+Enter the element you need to srearch: 5
+The Element 5 Found at the position 5
+*/
